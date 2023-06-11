@@ -4,28 +4,30 @@
     <meta charset="UTF-8">
     <title> Rock-Paper-Scissors </title>
     <script src="code.js" defer> </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah">
   </head>
 
   <body>
     <div class="container">
 
-      <h1> The invaders are here! Your Highness, they have demanded five trials of combat to keep your kingdom! </h1>
-      <h2> Who will you be sending on this day? The assassin, the mage or the warrior? </h2>
+      <h1> The invaders are here! Your Highness, they have sent their elite squad to infiltrate our kingdom! </h1>
+      <h2> We need to defend ourselves and our people with the best assassins, mages, and warriors! </h2>
 
-      <label id="startButtonLabel" for="startButton">Push button to start</label>
+      <label id="startButtonLabel" for="startButton">Push button to convene the council and select a defender of our kingdom</label>
       <button id="startButton"></button>
       <div id="scoreContainer">
         <div id="gameMessages"></div>
-        <div id="scoreboard">
-          <div id="playerScoreboard">Your kingdom's victories: </div>
+        <div class="text-line" id="scoreboard">
+          <div id="playerScoreboard">Our kingdom's victories: </div>
           <div id="computerScoreboard">The invaders' victories: </div>
         </div>
       </div>
 
-      <div id="selectionButtonContainer">
-        <button id="assassinButton" class="selectionButtons">Assassin</button>
-        <button id="mageButton" class="selectionButtons">Mage</button>
-        <button id="warriorButton" class="selectionButtons">Warrior</button>
+      <div class="buttons"id="selectionButtonContainer">
+        <button class="btn" id="assassinButton" class="selectionButtons"><img src="images/assassin.png"/></button>
+        <button class="btn" id="mageButton" class="selectionButtons"><img src="images/mage.png"/></button>
+        <button class="btn" id="warriorButton" class="selectionButtons"><img src="images/warrior.png"/></button>
       </div>
     </div>
 

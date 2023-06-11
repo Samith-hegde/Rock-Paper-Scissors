@@ -1,0 +1,44 @@
+html{
+    font-size: 20px;
+    background: url(images/bg.PNG);
+    background-size: 2500px 1200px;
+    background-repeat: no-repeat;
+    font-family: 'Gloria Hallelujah', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.buttons{
+    margin-top: 20px;
+}
+
+.btn{
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    outline: none;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    border-color: goldenrod;
+}
+
+img{
+    width: 400px;
+    height: 500px;
+}
+
+text-line{
+    display: flex;
+    flex-direction: row;
+    font-size: 50px;
+}

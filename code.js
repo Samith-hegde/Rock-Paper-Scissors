@@ -9,39 +9,44 @@ function one_round(playerSelection) {
     let computerSelection = getComputerChoice();
 
     if (playerSelection === computerSelection) {
-        updateMessage('This round is a draw. Push button above to continue.');
+        updateMessage('Ours and the enemy\'s belligerents were equally matched, Your Highness!');
         endRound();
         return;
     }
 
-    let a = 0
-
     if (playerSelection === "ASSASSIN" && computerSelection === "MAGE") {
-        a++;
+        updateMessage(`Splendid! Our assassin sneaked up on the enemy's unsuspecting mage and put him to rest.`);
+        player++;
     }
 
     if (playerSelection === "WARRIOR" && computerSelection === "ASSASSIN") {
-        a++;
+        updateMessage(`Ha! The enemy\'s lithe assassin was no match for our brute warrior.`);
+        player++;
     }
 
     if (playerSelection === "MAGE" && computerSelection === "WARRIOR") {
-        a++;
+        updateMessage(`Glad tidings, Your Highness! The enemy's untested warrior was light work for our experienced Mage.`);
+        player++;
     }
 
-    if (a === 1) {
-        updateMessage(`You win. ${playerSelection} beats ${computerSelection}`);
-        player++;
-        round++;
-        endRound();
-        return;
-    }
-    else if (a === 0) {
-        updateMessage(`You lose. ${computerSelection} beats ${playerSelection}`);
+    if (computerSelection === "ASSASSIN" && playerSelection === "MAGE") {
+        updateMessage(`We inch closer to defeat! Our mage was cut down by the enemy's skilled assassin.`);
         computer++;
-        round++;
-        endRound();
-        return;
     }
+
+    if (computerSelection == "WARRIOR" && playerSelection === "ASSASSIN") {
+        updateMessage(`I bear ill news. Our assassin's family grieves while the enemy's warrior continues to give us trouble.`);
+        computer++;
+    }
+
+    if (computerSelection === "MAGE" && playerSelection === "WARRIOR") {
+        updateMessage(`Grave tidings, Your Highness! The enemy\'s mage used a powerful spell to eliminate our warrior.`);
+        computer++;
+    }
+
+    round++;
+    endRound();
+    return;
 }
 
 function updateMessage(message) {
@@ -57,12 +62,12 @@ function endRound() {
 
 function updatePlayerScoreboard() {
     let playerScoreboard = document.querySelector('#playerScoreboard');
-    playerScoreboard.textContent = 'Player: ' + player;
+    playerScoreboard.textContent = `Our kingdom\'s victories: ` + player;
 }
 
 function updateComputerScoreboard() {
     let computerScoreboard = document.querySelector('#computerScoreboard');
-    computerScoreboard.textContent = 'Computer: ' + computer;
+    computerScoreboard.textContent = `The invaders\' victories: ` + computer;
 }
 
 function reset() {
@@ -72,17 +77,17 @@ function reset() {
 }
 
 function game() {
-    updateMessage('Starting round' + (round+1) + '. Make your selection');
+    updateMessage('Starting day ' + (round+1) + '. Who will you be choosing? ');
     toggleHidden();
-    updatePlayerScoreboard('Player: ' + player);
-    updateComputerScoreboard('Computer: ' + computer);
+    updatePlayerScoreboard(`Our kingdom\'s victories: ` + player);
+    updateComputerScoreboard(`Our kingdom\'s victories: ` + computer);
 
     if (player===5) {
-        updateMessage('You have won the game');
+        updateMessage('Their elite squad is no more, Your Highness! Rejoice, we have successfully defended our kingdom!');
         reset();
     }
     else if(computer===5) {
-        updateMessage('You have lost the game');         
+        updateMessage('We have fallen, Your Highness! The enemy are at the gates. Our kingdom is no more!');         
         reset();
     }
 }
